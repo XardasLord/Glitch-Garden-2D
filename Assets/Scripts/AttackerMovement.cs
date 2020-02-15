@@ -4,9 +4,7 @@ namespace Assets.Scripts
 {
     public class AttackerMovement : MonoBehaviour
     {
-        [SerializeField] 
-        [Range(0f, 3f)]
-        private float speed = 1f;
+        private float _currentSpeed = 1f;
 
         private void Update()
         {
@@ -15,7 +13,12 @@ namespace Assets.Scripts
 
         private void Move()
         {
-            transform.Translate(Vector2.left * Time.deltaTime * speed);
+            transform.Translate(Vector2.left * Time.deltaTime * _currentSpeed);
+        }
+
+        public void SetMovementSpeed(float speed)
+        {
+            _currentSpeed = speed;
         }
     }
 }
