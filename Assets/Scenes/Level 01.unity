@@ -881,6 +881,8 @@ GameObject:
   - component: {fileID: 1774866861}
   - component: {fileID: 1774866863}
   - component: {fileID: 1774866862}
+  - component: {fileID: 1774866865}
+  - component: {fileID: 1774866864}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -972,6 +974,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1774866864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774866860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759cf3274a3e8fa4082f90b8c135ea82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &1774866865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774866860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6cd4ba267d2b743bf590fdc6d15c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1887204540
 GameObject:
   m_ObjectHideFlags: 0
