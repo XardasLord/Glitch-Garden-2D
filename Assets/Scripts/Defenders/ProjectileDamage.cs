@@ -8,21 +8,18 @@ namespace Defenders
     {
         [SerializeField] private int damageValue = 100;
 
-        public event Action<int> OnDealDamage = delegate { };
-
-        public int Damage { get; private set; }
-
-        private void Awake()
-        {
-            Damage = damageValue;
-        }
+        public event Action OnHit = delegate { };
 
         private void OnTriggerEnter2D(Collider2D otherCollider)
         {
-            //TODO: Fire an event!
-            //OnDealDamage(Damage);
+            var attackerHealth = otherCollider.GetComponent<AttackerHealth>();
+            var attacker = otherCollider.GetComponent<Attacker>();
 
-            otherCollider.GetComponent<AttackerHealth>().DealDamage(Damage);
+            if (attacker && attackerHealth)
+            {
+                attackerHealth.DealDamage(damageValue);
+                OnHit();
+            }
         }
     }
 }
