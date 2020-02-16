@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using Assets.Scripts.Attackers;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Attackers
 {
     public class AttackerSpawner : MonoBehaviour
     {

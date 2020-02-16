@@ -1,5 +1,5 @@
 ﻿using System;
-using Assets.Scripts.Attackers;
+using Attackers;
 using UnityEngine;
 
 namespace Defenders

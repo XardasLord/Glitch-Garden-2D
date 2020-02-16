@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Attackers
+namespace Attackers
 {
     public class AttackerHealth : MonoBehaviour
     {
         [SerializeField] private int health = 100;
-
-        private void Awake()
-        {
-        }
 
         public void DealDamage(int damage)
         {
