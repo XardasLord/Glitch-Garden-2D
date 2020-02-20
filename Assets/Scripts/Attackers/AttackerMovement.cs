@@ -13,7 +13,7 @@ namespace Attackers
 
         private void Move()
         {
-            transform.Translate(Vector2.left * Time.deltaTime * _currentSpeed);
+            transform.Translate(Vector2.left * (Time.deltaTime * _currentSpeed));
         }
 
         public void SetMovementSpeed(float speed)

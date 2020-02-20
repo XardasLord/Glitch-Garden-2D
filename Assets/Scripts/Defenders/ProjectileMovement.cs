@@ -13,7 +13,7 @@ namespace Defenders
 
         private void Move()
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            transform.Translate(Vector2.right * (speed * Time.deltaTime));
         }
     }
 }
