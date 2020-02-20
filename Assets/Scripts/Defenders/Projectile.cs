@@ -1,12 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-namespace Assets.Scripts.Defenders
+namespace Defenders
 {
     public class Projectile : MonoBehaviour
     {
-        private void Update()
+        public event Action OnDestroy = delegate { }; 
+
+        private void Awake()
         {
-        
+            GetComponent<ProjectileDamage>().OnHit += Hit;
+        }
+
+        private void Hit()
+        {
+            Destroy(gameObject);
+            OnDestroy();
         }
     }
 }

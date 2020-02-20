@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Defenders
+namespace Defenders
 {
     public class ProjectileMovement : MonoBehaviour
     {
@@ -13,7 +13,7 @@ namespace Assets.Scripts.Defenders
 
         private void Move()
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            transform.Translate(Vector2.right * (speed * Time.deltaTime));
         }
     }
 }
