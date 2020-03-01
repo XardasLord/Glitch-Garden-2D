@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts
+namespace Attackers
 {
     public class AttackerMovement : MonoBehaviour
     {
@@ -13,7 +13,7 @@ namespace Assets.Scripts
 
         private void Move()
         {
-            transform.Translate(Vector2.left * Time.deltaTime * _currentSpeed);
+            transform.Translate(Vector2.left * (Time.deltaTime * _currentSpeed));
         }
 
         public void SetMovementSpeed(float speed)
