@@ -7,17 +7,24 @@ namespace Defenders
     {
         [SerializeField] private GameObject defender;
 
+        private Camera _mainCamera;
+
         public event Action DefenderSpawned = delegate { };
+
+        private void Awake()
+        {
+            _mainCamera = Camera.main;
+        }
 
         private void OnMouseDown()
         {
             SpawnDefender(GetSquareClicked());
         }
 
-        private static Vector2 GetSquareClicked()
+        private Vector2 GetSquareClicked()
         {
             var clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            var worldPos = Camera.main.ScreenToWorldPoint(clickPos);
+            var worldPos = _mainCamera.ScreenToWorldPoint(clickPos);
 
             return worldPos;
         }
