@@ -26,7 +26,15 @@ namespace Defenders
             var clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             var worldPos = _mainCamera.ScreenToWorldPoint(clickPos);
 
-            return worldPos;
+            return SnapToGrid(worldPos);
+        }
+
+        private static Vector2 SnapToGrid(Vector2 rawWorldPos)
+        {
+            var newX = Mathf.RoundToInt(rawWorldPos.x);
+            var newY = Mathf.RoundToInt(rawWorldPos.y);
+
+            return new Vector2(newX, newY);
         }
 
         private void SpawnDefender(Vector2 worldPos)
