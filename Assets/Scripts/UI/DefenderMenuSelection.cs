@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Defenders;
+using UnityEngine;
 
 namespace UI
 {
     public class DefenderMenuSelection : MonoBehaviour
     {
+        [SerializeField] private Defender defenderPrefab;
+
         private SpriteRenderer _spriteRenderer;
         private DefenderMenuSelection[] _defenderMenuSelections;
 
@@ -12,7 +15,7 @@ namespace UI
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _defenderMenuSelections = FindObjectsOfType<DefenderMenuSelection>();
         }
-
+        
         private void OnMouseDown()
         {
             foreach (var defenderMenu in _defenderMenuSelections)
@@ -21,6 +24,8 @@ namespace UI
             }
 
             _spriteRenderer.color = Color.white;
+
+            FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
         }
     }
 }

@@ -792,6 +792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44784ec1a8ddf4c48b7a5dcef5f1c0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defenderPrefab: {fileID: 7040597929126334209, guid: 88f3fa8599eeb45439a7fe419d8a4106,
+    type: 3}
 --- !u!1 &1887204540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44784ec1a8ddf4c48b7a5dcef5f1c0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defenderPrefab: {fileID: 314960073649152312, guid: 702f981c005662d429e6202b56a2b0a0,
+    type: 3}
 --- !u!1001 &1960931949388792167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1087,11 +1091,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1960931948918467880, guid: 702f981c005662d429e6202b56a2b0a0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 4123701749536642097, guid: 702f981c005662d429e6202b56a2b0a0,
         type: 3}
       propertyPath: m_LocalPosition.x
