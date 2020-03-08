@@ -5,7 +5,7 @@ namespace Defenders
 {
     public class DefenderSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject defender;
+        private Defender _defender;
 
         private Camera _mainCamera;
 
@@ -19,6 +19,11 @@ namespace Defenders
         private void OnMouseDown()
         {
             SpawnDefender(GetSquareClicked());
+        }
+
+        public void SetSelectedDefender(Defender defenderToSelect)
+        {
+            _defender = defenderToSelect;
         }
 
         private Vector2 GetSquareClicked()
@@ -39,7 +44,7 @@ namespace Defenders
 
         private void SpawnDefender(Vector2 worldPos)
         {
-            Instantiate(defender, worldPos, Quaternion.identity);
+            Instantiate(_defender, worldPos, Quaternion.identity);
             DefenderSpawned();
         }
     }
