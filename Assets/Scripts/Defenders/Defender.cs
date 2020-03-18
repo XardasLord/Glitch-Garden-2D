@@ -11,5 +11,10 @@ namespace Defenders
         {
             FindObjectOfType<StarDisplay>().AddStar(amount);
         }
+
+        public int GetStarCost()
+        {
+            return starCost;
+        }
     }
 }
