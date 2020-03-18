@@ -669,33 +669,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 347353895}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1322052888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7723503153042808738, guid: 702f981c005662d429e6202b56a2b0a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1960931949388792167}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1322052889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322052888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c03f81888e711be4c8384c98a412c0a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 5752819691253645507, guid: 30bdda3f2cf4e264d86b6e0968ff05a0,
-    type: 3}
-  gunPosition: {fileID: 1445440208}
---- !u!1 &1445440208 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2229117885675580730, guid: 702f981c005662d429e6202b56a2b0a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1960931949388792167}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1747753872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,21 +1089,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1435359935250791962, guid: 702f981c005662d429e6202b56a2b0a0,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1435359935250791962, guid: 702f981c005662d429e6202b56a2b0a0,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1435359935250791962, guid: 702f981c005662d429e6202b56a2b0a0,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4123701749536642097, guid: 702f981c005662d429e6202b56a2b0a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1191,8 +1149,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7529916916074588026, guid: 702f981c005662d429e6202b56a2b0a0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 702f981c005662d429e6202b56a2b0a0, type: 3}
 --- !u!1001 &2005482512636383348
 PrefabInstance:
