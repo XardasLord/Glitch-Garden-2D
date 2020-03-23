@@ -16,6 +16,11 @@ namespace UI
             UpdateDisplay();
         }
 
+        public bool HaveEnoughStars(int amount)
+        {
+            return stars >= amount;
+        }
+
         public void AddStar(int amount)
         {
             stars += amount;

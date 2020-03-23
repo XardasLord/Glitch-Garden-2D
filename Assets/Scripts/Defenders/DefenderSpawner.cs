@@ -1,4 +1,5 @@
 ﻿using System;
+using UI;
 using UnityEngine;
 
 namespace Defenders
@@ -8,22 +9,34 @@ namespace Defenders
         private Defender _defender;
 
         private Camera _mainCamera;
+        private StarDisplay _starDisplay;
 
         public event Action DefenderSpawned = delegate { };
 
         private void Awake()
         {
             _mainCamera = Camera.main;
+            _starDisplay = FindObjectOfType<StarDisplay>();
         }
 
         private void OnMouseDown()
         {
-            SpawnDefender(GetSquareClicked());
+            AttemptToPlaceDefenderAt(GetSquareClicked());
         }
 
         public void SetSelectedDefender(Defender defenderToSelect)
         {
             _defender = defenderToSelect;
+        }
+
+        private void AttemptToPlaceDefenderAt(Vector2 gridPos)
+        {
+            var defenderCost = _defender.GetStarCost();
+            if (_starDisplay.HaveEnoughStars(defenderCost))
+            {
+                SpawnDefender(gridPos);
+                _starDisplay.SpendStars(defenderCost);
+            }
         }
 
         private Vector2 GetSquareClicked()
