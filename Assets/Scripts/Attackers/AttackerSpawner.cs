@@ -22,7 +22,8 @@ namespace Attackers
 
         private void SpawnAttacker()
         {
-            Instantiate(attackerPrefab, transform.position, Quaternion.identity);
+            var newAttacker = Instantiate(attackerPrefab, transform.position, Quaternion.identity);
+            newAttacker.transform.parent = transform;
         }
     }
 }
