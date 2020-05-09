@@ -1,5 +1,4 @@
-﻿using System;
-using Attackers;
+﻿using Attackers;
 using UnityEngine;
 
 namespace Defenders
@@ -9,23 +8,21 @@ namespace Defenders
         [SerializeField] private GameObject projectile, gunPosition;
 
         private AttackerSpawner _myLaneSpawner;
+        private Animator _animator;
+
+        private static readonly int IsAttackingParameterId = Animator.StringToHash("IsAttacking");
+
+        private void Awake()
+            => _animator = GetComponent<Animator>();
 
         private void Start()
         {
             SetLaneSpawner();
         }
 
-        private void Update()
-        {
-            if (IsAttackerInLine())
-            {
-                Debug.Log("SHOOOT!");
-            }
-            else
-            {
-                Debug.Log("WAIT");
-            }
-        }
+        private void Update() => 
+            _animator.SetBool(IsAttackingParameterId, IsAttackerInLine());
+
         private void SetLaneSpawner()
         {
             var spawners = FindObjectsOfType<AttackerSpawner>();
