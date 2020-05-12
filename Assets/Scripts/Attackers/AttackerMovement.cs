@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Attackers
 {
@@ -8,11 +9,16 @@ namespace Attackers
         [Range(0f, 5f)]
         private float currentSpeed = 1f;
 
-        private GameObject _currentTarget;
-        private static readonly int IsAttackingParameterId = Animator.StringToHash("IsAttacking");
+        private Attacker _attackerComponent;
 
-        private void Update() 
-            => Move();
+        private void Awake() => 
+            _attackerComponent = GetComponent<Attacker>();
+
+        private void Update()
+        {
+            Move();
+            UpdateAnimationState();
+        }
 
         private void Move() 
             => transform.Translate(Vector2.left * (Time.deltaTime * currentSpeed));
@@ -20,10 +26,12 @@ namespace Attackers
         public void SetMovementSpeed(float speed) 
             => currentSpeed = speed;
 
-        public void Attack(GameObject target)
+        private void UpdateAnimationState()
         {
-            GetComponent<Animator>().SetBool(IsAttackingParameterId, true);
-            _currentTarget = target;
+            if (!_attackerComponent.IsAttacking)
+            {
+                _attackerComponent.StopAttack();
+            }
         }
     }
 }

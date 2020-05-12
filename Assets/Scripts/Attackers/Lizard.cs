@@ -11,7 +11,7 @@ namespace Attackers
 
             if (otherCollider.GetComponent<Defender>())
             {
-                GetComponent<AttackerMovement>().Attack(otherObject);
+                GetComponent<Attacker>().Attack(otherObject);
             }
         }
     }
