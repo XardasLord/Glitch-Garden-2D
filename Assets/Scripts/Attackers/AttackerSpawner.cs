@@ -7,7 +7,7 @@ namespace Attackers
     {
         [SerializeField] private float minSpawnDelay = 1f;
         [SerializeField] private float maxSpawnDelay = 5f;
-        [SerializeField] private Attacker attackerPrefab;
+        [SerializeField] private Attacker[] attackerPrefabs;
 
         private bool _spawn = true;
 
@@ -22,7 +22,13 @@ namespace Attackers
 
         private void SpawnAttacker()
         {
-            var newAttacker = Instantiate(attackerPrefab, transform.position, Quaternion.identity);
+            var attackerIndex = Random.Range(0, attackerPrefabs.Length);
+            Spawn(attackerPrefabs[attackerIndex]);
+        }
+
+        private void Spawn(Attacker attacker)
+        {
+            var newAttacker = Instantiate(attacker, transform.position, Quaternion.identity);
             newAttacker.transform.parent = transform;
         }
     }
