@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
@@ -25,6 +26,9 @@ namespace UI
         {
             lives--;
             UpdateDisplay();
+
+            if (lives <= 0)
+                FindObjectOfType<LevelLoader>().LoadYouLoseScene();
         }
 
         private void UpdateDisplay() 

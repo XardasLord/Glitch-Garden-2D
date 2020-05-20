@@ -27,5 +27,10 @@ namespace Assets.Scripts
         {
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
+
+        public void LoadYouLoseScene()
+        {
+            SceneManager.LoadScene($"Lose Screen");
+        }
     }
 }
