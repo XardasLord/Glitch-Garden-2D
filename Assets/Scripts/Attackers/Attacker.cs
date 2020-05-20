@@ -1,4 +1,5 @@
-﻿using Defenders;
+﻿using System;
+using Defenders;
 using UnityEngine;
 
 namespace Attackers
@@ -9,6 +10,9 @@ namespace Attackers
         private static readonly int IsAttackingParameterId = Animator.StringToHash("IsAttacking");
 
         public bool IsAttacking => _currentTarget != null;
+
+        private void OnDestroy()
+            => FindObjectOfType<LevelController>().AttackerKilled();
 
         public void Attack(GameObject target)
         {

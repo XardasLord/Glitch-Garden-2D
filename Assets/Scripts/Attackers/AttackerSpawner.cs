@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Attackers
 {
@@ -8,6 +10,8 @@ namespace Attackers
         [SerializeField] private float minSpawnDelay = 1f;
         [SerializeField] private float maxSpawnDelay = 5f;
         [SerializeField] private Attacker[] attackerPrefabs;
+
+        public event Action OnSpawned = delegate { };
 
         private bool _spawn = true;
 
@@ -20,6 +24,9 @@ namespace Attackers
             }
         }
 
+        public void StopSpawning()
+            => _spawn = false;
+
         private void SpawnAttacker()
         {
             var attackerIndex = Random.Range(0, attackerPrefabs.Length);
@@ -30,6 +37,7 @@ namespace Attackers
         {
             var newAttacker = Instantiate(attacker, transform.position, Quaternion.identity);
             newAttacker.transform.parent = transform;
+            OnSpawned();
         }
     }
 }
