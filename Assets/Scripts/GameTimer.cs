@@ -8,19 +8,25 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private float levelTime = 10;
 
     private Slider _slider;
+    private bool _timerExpired;
+    public static event Action OnExpired = delegate { };
 
     private void Awake() 
         => _slider = GetComponent<Slider>();
 
-    void Update()
+    private void Update()
     {
+        if (_timerExpired)
+            return;
+        
         _slider.value = Time.timeSinceLevelLoad / levelTime;
 
         var levelFinished = Time.timeSinceLevelLoad >= levelTime;
 
         if (levelFinished)
         {
-            Debug.Log("Level timer expired!");
+            OnExpired();
+            _timerExpired = true;
         }
     }
 }
