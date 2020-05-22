@@ -1,5 +1,4 @@
-﻿using System;
-using Defenders;
+﻿using Defenders;
 using UnityEngine;
 
 namespace Attackers

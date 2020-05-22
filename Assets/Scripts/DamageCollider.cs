@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UI
+public class DamageCollider : MonoBehaviour
 {
-    public class DamageCollider : MonoBehaviour
-    {
-        public static event Action OnEnemyEntered = delegate { };
+    public static event Action OnEnemyEntered = delegate { };
 
-        private void OnTriggerEnter2D(Collider2D other)
-            => OnEnemyEntered();
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(other.gameObject);
+        OnEnemyEntered();
     }
 }
