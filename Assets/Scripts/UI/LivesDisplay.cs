@@ -28,7 +28,7 @@ namespace UI
             UpdateDisplay();
 
             if (lives <= 0)
-                FindObjectOfType<LevelLoader>().LoadYouLoseScene();
+                FindObjectOfType<LevelController>().HandleLoseCondition();
         }
 
         private void UpdateDisplay() 

@@ -23,6 +23,18 @@ namespace Assets.Scripts
             LoadNextScene();
         }
 
+        public void RestartScene()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(currentSceneIndex);
+        }
+
+        public void LoadMainMenu()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Start Screen");
+        }
+
         public void LoadNextScene()
         {
             SceneManager.LoadScene(currentSceneIndex + 1);
@@ -30,7 +42,12 @@ namespace Assets.Scripts
 
         public void LoadYouLoseScene()
         {
-            SceneManager.LoadScene($"Lose Screen");
+            SceneManager.LoadScene("Lose Screen");
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
         }
     }
 }
