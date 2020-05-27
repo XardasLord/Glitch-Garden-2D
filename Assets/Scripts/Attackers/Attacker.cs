@@ -11,7 +11,7 @@ namespace Attackers
         public bool IsAttacking => _currentTarget != null;
 
         private void OnDestroy()
-            => FindObjectOfType<LevelController>().AttackerKilled();
+            => FindObjectOfType<LevelController>()?.AttackerKilled();
 
         public void Attack(GameObject target)
         {
