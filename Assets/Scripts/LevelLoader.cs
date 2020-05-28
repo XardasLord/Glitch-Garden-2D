@@ -35,6 +35,11 @@ namespace Assets.Scripts
             SceneManager.LoadScene("Start Screen");
         }
 
+        public void LoadOptionsMenu()
+        {
+            SceneManager.LoadScene("Options Screen");
+        }
+
         public void LoadNextScene()
         {
             SceneManager.LoadScene(currentSceneIndex + 1);
