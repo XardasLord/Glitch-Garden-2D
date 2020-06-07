@@ -20,7 +20,7 @@ public class PlayerPrefsController : MonoBehaviour
         }
     }
 
-    public static float GetMasterVolumeValue()
+    public static float GetMasterVolume()
         => PlayerPrefs.GetFloat(MasterVolumeKey);
 
     public static void SetDifficulty(float difficulty)
