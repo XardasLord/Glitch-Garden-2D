@@ -7,9 +7,11 @@ namespace Defenders
     public class DefenderSpawner : MonoBehaviour
     {
         private Defender _defender;
-
         private Camera _mainCamera;
         private StarDisplay _starDisplay;
+        private GameObject _defenderParent;
+
+        private const string DefenderParentName = "Defenders";
 
         public event Action DefenderSpawned = delegate { };
 
@@ -17,6 +19,18 @@ namespace Defenders
         {
             _mainCamera = Camera.main;
             _starDisplay = FindObjectOfType<StarDisplay>();
+        }
+
+        private void Start() 
+            => CreateDefenderParent();
+
+        private void CreateDefenderParent()
+        {
+            _defenderParent = GameObject.Find(DefenderParentName);
+            if (!_defenderParent)
+            {
+                _defenderParent = new GameObject(DefenderParentName);
+            }
         }
 
         private void OnMouseDown()
@@ -57,7 +71,9 @@ namespace Defenders
 
         private void SpawnDefender(Vector2 worldPos)
         {
-            Instantiate(_defender, worldPos, Quaternion.identity);
+            var newDefender = Instantiate(_defender, worldPos, Quaternion.identity);
+            newDefender.transform.parent = _defenderParent.transform;
+
             DefenderSpawned();
         }
     }

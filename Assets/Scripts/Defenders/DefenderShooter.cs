@@ -9,8 +9,10 @@ namespace Defenders
 
         private AttackerSpawner _myLaneSpawner;
         private Animator _animator;
+        private GameObject _projectileParent;
 
         private static readonly int IsAttackingParameterId = Animator.StringToHash("IsAttacking");
+        private const string ProjectileParentName = "Projectiles";
 
         private void Awake()
             => _animator = GetComponent<Animator>();
@@ -18,9 +20,19 @@ namespace Defenders
         private void Start()
         {
             SetLaneSpawner();
+            CreateProjectileParent();
         }
 
-        private void Update() => 
+        private void CreateProjectileParent()
+        {
+            _projectileParent = GameObject.Find(ProjectileParentName);
+            if (!_projectileParent)
+            {
+                _projectileParent = new GameObject(ProjectileParentName);
+            }
+        }
+
+        private void Update() =>
             _animator.SetBool(IsAttackingParameterId, IsAttackerInLine());
 
         private void SetLaneSpawner()
@@ -38,12 +50,13 @@ namespace Defenders
             }
         }
 
-        private bool IsAttackerInLine() 
+        private bool IsAttackerInLine()
             => _myLaneSpawner.transform.childCount > 0;
 
         public void Fire()
         {
-            Instantiate(projectile, gunPosition.transform.position, Quaternion.identity);
+            var newProjectile = Instantiate(projectile, gunPosition.transform.position, Quaternion.identity);
+            newProjectile.transform.parent = _projectileParent.transform;
         }
     }
 }
