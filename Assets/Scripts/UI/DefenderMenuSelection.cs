@@ -1,5 +1,6 @@
 ﻿using Defenders;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,12 +11,30 @@ namespace UI
         private SpriteRenderer _spriteRenderer;
         private DefenderMenuSelection[] _defenderMenuSelections;
 
+        private void Start()
+        {
+            LoadButtonWithCost();
+        }
+
+        private void LoadButtonWithCost()
+        {
+            var costText = GetComponentInChildren<Text>();
+            if (!costText)
+            {
+                Debug.LogError($"{name} has no cost text, add some!");
+            }
+            else
+            {
+                costText.text = defenderPrefab.GetStarCost().ToString();
+            }
+        }
+
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _defenderMenuSelections = FindObjectsOfType<DefenderMenuSelection>();
         }
-        
+
         private void OnMouseDown()
         {
             foreach (var defenderMenu in _defenderMenuSelections)
